@@ -2,8 +2,8 @@ var apiKey = "f551d639ab834af98e5a90d095b18886";
 
 
 function runApi() {
-    var searchParam = $('#exampleFormControlInput1').val();
-    var numRecords = $('#exampleFormControlSelect1').val();
+    var searchParam = $('#exampleFormControlInput1').val().trim();
+    var numRecords = $('#exampleFormControlSelect1').val().trim();
 
     var urlAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + searchParam;
     $.ajax({
