@@ -1,20 +1,21 @@
 var apiKey = "f551d639ab834af98e5a90d095b18886";
-var searchParam = "google";
 var numRecords;
-var urlAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + searchParam;
 
 
 
 function getSearchParam() {
-    searchParam = $('#exampleFormControlInput1').val();
+    var searchParam = $('#exampleFormControlInput1').val();
 }
 
-function getRecordNum() {
-    numRecords = $('#exampleFormControlSelect1').val();
-}
+function getRecordNum() {}
 
 
 function runApi() {
+    var searchParam = $('#exampleFormControlInput1').val();
+    var numRecords = $('#exampleFormControlSelect1').val();
+
+
+    var urlAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + searchParam;
     $.ajax({
         url: urlAPI,
         method: "GET",
@@ -33,7 +34,8 @@ function runApi() {
 
 
 $(function () {
-    $('#searchBtn').click(function () {
+    $('#searchBtn').click(function (e) {
+        e.preventDefault();
         getSearchParam();
         getRecordNum();
         runApi();
