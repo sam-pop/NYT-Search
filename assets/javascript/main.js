@@ -10,8 +10,9 @@ function getSearchParam() {
 }
 
 function getRecordNum() {
-    numRecords = $('exampleFormControlSelect1"').val();
+    numRecords = $('#exampleFormControlSelect1').val();
 }
+
 
 function runApi() {
     $.ajax({
@@ -21,6 +22,7 @@ function runApi() {
             for (var i = 0; i < numRecords; i++) {
                 var title = res.response.docs[i].headline.main;
                 var snippet = res.response.docs[i].snippet;
+                $('.results').append($('<div>').text(title));
             }
         },
         error: function () {
@@ -29,6 +31,11 @@ function runApi() {
     });
 }
 
-$(function () {
 
+$(function () {
+    $('#searchBtn').click(function () {
+        getSearchParam();
+        getRecordNum();
+        runApi();
+    });
 });
