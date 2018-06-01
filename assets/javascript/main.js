@@ -1,13 +1,4 @@
 var apiKey = "f551d639ab834af98e5a90d095b18886";
-var numRecords;
-
-
-
-function getSearchParam() {
-    var searchParam = $('#exampleFormControlInput1').val();
-}
-
-function getRecordNum() {}
 
 
 function runApi() {
