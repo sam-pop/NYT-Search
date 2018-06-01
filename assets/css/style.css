@@ -14,8 +14,17 @@
     border-style: solid;
     border-color: #233257;
     margin-bottom: 8px;
+    border-top: none;
  
 }
 .form-group {
     padding: 10px;
+}
+.btn {
+    margin: 5px;
+    margin-bottom: 10px;
+}
+.card-header {
+    color: white;
+    background-color: #233257;
 }
