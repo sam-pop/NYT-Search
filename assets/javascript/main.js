@@ -2,6 +2,7 @@ var apiKey = "f551d639ab834af98e5a90d095b18886";
 
 
 function runApi() {
+    $('.results').empty();
     var searchParam = $('#exampleFormControlInput1').val().trim();
     var numRecords = $('#exampleFormControlSelect1').val().trim();
 
