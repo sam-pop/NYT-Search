@@ -5,7 +5,6 @@ function runApi() {
     var searchParam = $('#exampleFormControlInput1').val();
     var numRecords = $('#exampleFormControlSelect1').val();
 
-
     var urlAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + searchParam;
     $.ajax({
         url: urlAPI,
@@ -27,8 +26,6 @@ function runApi() {
 $(function () {
     $('#searchBtn').click(function (e) {
         e.preventDefault();
-        getSearchParam();
-        getRecordNum();
         runApi();
     });
 });
