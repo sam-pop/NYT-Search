@@ -14,6 +14,7 @@ function runApi() {
                 var title = res.response.docs[i].headline.main;
                 var snippet = res.response.docs[i].snippet;
                 $('.results').append($('<div>').text(title));
+                $('.results').append($('<div>').text("--" + snippet));
             }
         },
         error: function () {
