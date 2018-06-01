@@ -11,11 +11,14 @@ function runApi() {
         url: urlAPI,
         method: "GET",
         success: function (res) {
+
             for (var i = 0; i < numRecords; i++) {
                 var title = res.response.docs[i].headline.main;
                 var snippet = res.response.docs[i].snippet;
+                var urls = res.response.docs[i].web_url;
                 $('.results').append($('<div>').text(title));
                 $('.results').append($('<div>').text("--" + snippet));
+                $('.results').append($('<a>').attr('href', urls).text('Link'));
             }
         },
         error: function () {
