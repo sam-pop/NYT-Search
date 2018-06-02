@@ -1,5 +1,4 @@
 const API_KEY = "f551d639ab834af98e5a90d095b18886";
-var searchParam;
 var numRecords;
 
 function getSearchParam() {
@@ -28,8 +27,12 @@ function showResults(res) {
 
 
 function runApi() {
-    searchParam = getSearchParam();
-    var urlAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + API_KEY + "&q=" + searchParam;
+    apiParam = {
+        'api-key': API_KEY,
+        'q': getSearchParam()
+    };
+
+    var urlAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + $.param(apiParam);
 
     $.ajax({
         url: urlAPI,
