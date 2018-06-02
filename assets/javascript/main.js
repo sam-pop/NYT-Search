@@ -2,25 +2,28 @@ const API_KEY = "f551d639ab834af98e5a90d095b18886";
 var numRecords;
 
 function getSearchParam() {
-    let $search = $('#exampleFormControlInput1');
+    let $search = $('#searchTerm');
     return $search.val().trim();
 }
 
 function getNumArticles() {
-    let $numArticles = $('#exampleFormControlSelect1');
+    let $numArticles = $('#recordNum');
     return $numArticles.val().trim();
 }
 
 function showResults(res) {
-    $('.results').empty();
+    let $results = $('.results');
+    $results.empty();
 
     for (var i = 0; i < getNumArticles(); i++) {
+
         var title = res.response.docs[i].headline.main;
         var snippet = res.response.docs[i].snippet;
         var urls = res.response.docs[i].web_url;
-        $('.results').append($('<div>').text(title));
-        $('.results').append($('<div>').text("--" + snippet));
-        $('.results').append($('<a>').attr('href', urls).text('Link'));
+
+        $results.append($('<h3>').text(`${i+1}) ` + title));
+        $results.append($('<p>').text("--" + snippet));
+        $results.append($('<a>').attr('href', urls).text('Link'));
     }
 
 }
@@ -45,7 +48,6 @@ function runApi() {
         }
     });
 }
-
 
 $(function () {
     $('#searchBtn').click(function (e) {
