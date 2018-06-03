@@ -39,13 +39,20 @@ function showResults(res) {
         let snippet = res.response.docs[i].snippet;
         let link = res.response.docs[i].web_url;
 
-        let $article = $('<div>').addClass('card').append('<div>').addClass('card-body');
-        $article.append($('<h3>').addClass('card-title').text(`${i+1}. ` + title));
-        $article.append($('<p>').addClass('card-text').text(snippet));
-        $article.append($('<a>').attr({
+        let $article = $('<div>').addClass('card');
+        let $articleBody = $('<div>').addClass('card-body');
+        let $articleLink = $('<a>').attr({
             'href': link,
             'target': '_blank'
-        }).append($('<button>').addClass('btn').text('Show Article')));
+        });
+
+        $articleLink.append($('<h3>').addClass('card-title').text(`${i+1}. ` + title));
+        $articleLink.append($('<p>').addClass('card-text').text(snippet));
+        // $articleBody.append($('<a>').attr({
+        //     'href': link,
+        //     'target': '_blank'
+        // }).append($('<button>').addClass('btn').text('Show Article')));
+        $article.append($articleBody.append($articleLink));
         $results.append($article);
     }
 }

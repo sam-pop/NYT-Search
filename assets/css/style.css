@@ -58,3 +58,12 @@
 h1 {
     font-family: OldeEnglish, sans-serif;
 }
+
+.card-body a {
+    color: black;
+}
+
+.card-body a:hover {
+    text-decoration: unset;
+    color: #233257;
+}
