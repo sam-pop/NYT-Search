@@ -31,29 +31,31 @@
         <form class="form">
             <div class="card-header">Search Parameters</div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Search Term: </label>
-                <input type="email" class="form-control" id="searchTerm">
+                <label>Search Term: </label>
+                <input type="search" class="form-control" id="searchTerm">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Number of Records to Retrieve: </label>
-                <select class="form-control" id="recordNum">
+                <label>Number of Records to Retrieve: </label>
+                <select class="form-control" id="recordNum" active>
                     <option>1</option>
-                    <option>5</option>
+                    <option selected="selected">5</option>
                     <option>10</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Start Year(Optional):</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label>Start Year(Optional):</label>
+                <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="3">
+                </textarea>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea2">End Year(Optional):</label>
-                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+                <label>End Year(Optional):</label>
+                <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="3">
+                </textarea>
             </div>
             <button type="button" id="searchBtn" class="btn btn-primary btn-lg">
-                <i class="fas fa-search"></i>Search</button>
+                <i class="fas fa-search"></i>&nbsp;Search</button>
             <button type="button" id="clearBtn" class="btn btn-secondary btn-lg">
-                <i class="fas fa-trash-alt"></i>Clear Results</button>
+                <i class="fas fa-trash-alt"></i>&nbsp;Clear Results</button>
         </form>
 
         <div class="card">

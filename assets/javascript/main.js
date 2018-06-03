@@ -1,16 +1,18 @@
-const API_KEY = "f551d639ab834af98e5a90d095b18886";
-var numRecords;
+const API_KEY = "f551d639ab834af98e5a90d095b18886"; // NYT api key
+var numRecords; // number of records to show
 
+// get the search parameter from the user input field
 function getSearchParam() {
     let $search = $('#searchTerm');
     return $search.val().trim();
 }
-
+// get the number of articles to show from the drop down field
 function getNumArticles() {
     let $numArticles = $('#recordNum');
     return $numArticles.val().trim();
 }
 
+// populates the page with the generated results
 function showResults(res) {
     clearResults();
     let $results = $('.results');
@@ -29,15 +31,15 @@ function showResults(res) {
         }).append($('<button>').addClass('btn').text('Show Article')));
         $results.append($article);
     }
-
 }
 
+// clear the results from the page
 function clearResults() {
     let $results = $('.results');
     $results.empty();
 }
 
-
+// fetch query results from the NYT API
 function runApi() {
     apiParam = {
         'api-key': API_KEY,
@@ -58,7 +60,11 @@ function runApi() {
     });
 }
 
+// DOCUMENT READY
 $(function () {
+    $('form').submit(function (e) {
+        e.preventDefault();
+    });
     $('#searchBtn').click(function (e) {
         e.preventDefault();
         runApi();
