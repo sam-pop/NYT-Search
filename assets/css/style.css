@@ -1,3 +1,8 @@
+@font-face {
+    font-family: OldeEnglish;
+    src: url('../fonts/OldeEnglish.ttf');
+}
+
 .form {
     margin-bottom: 8px;
 }
@@ -7,6 +12,12 @@
 }
 
 .jumbotron {
+    color: white;
+    background-color: #233257;
+    text-align: center;
+}
+
+.blueBg {
     color: white;
     background-color: #233257;
     text-align: center;
@@ -42,4 +53,8 @@
 
 #button {
     background-color: darkgray;
+}
+
+h1 {
+    font-family: OldeEnglish, sans-serif;
 }

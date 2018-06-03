@@ -31,7 +31,7 @@ function getEndYear() {
 
 // populates the page with the generated results
 function showResults(res) {
-    clearResults();
+    $('.topArticles').show();
     let $results = $('.results');
 
     for (let i = 0; i < getNumArticles(); i++) {
@@ -54,6 +54,8 @@ function showResults(res) {
 function clearResults() {
     let $results = $('.results');
     $results.empty();
+    $('.topArticles').hide();
+
 }
 
 // fetch query results from the NYT API
@@ -73,6 +75,7 @@ function runApi() {
         url: urlAPI,
         method: "GET",
         success: function (res) {
+            clearResults();
             showResults(res);
         },
         error: function () {
@@ -83,6 +86,7 @@ function runApi() {
 
 // DOCUMENT READY
 $(function () {
+    clearResults();
     $('form').submit(function (e) {
         e.preventDefault();
     });
