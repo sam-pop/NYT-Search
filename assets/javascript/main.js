@@ -1,5 +1,6 @@
 const API_KEY = "f551d639ab834af98e5a90d095b18886"; // NYT api key
 var numRecords; // number of records to show
+var thisYear = new Date().getFullYear(); // get this year
 
 // get the search parameter from the user input field
 function getSearchParam() {
@@ -10,6 +11,22 @@ function getSearchParam() {
 function getNumArticles() {
     let $numArticles = $('#recordNum');
     return $numArticles.val().trim();
+}
+
+// returns the start year field 
+function getStartYear() {
+    let $startYear = $('#startYear').val().trim();
+    if ((parseInt($startYear)) && ($startYear <= thisYear)) {
+        return $startYear;
+    }
+}
+
+// returns the end year field 
+function getEndYear() {
+    let $endYear = $('#endYear').val().trim();
+    if ((parseInt($endYear)) && ($endYear <= thisYear)) {
+        return $endYear;
+    }
 }
 
 // populates the page with the generated results
@@ -45,9 +62,13 @@ function runApi() {
         'api-key': API_KEY,
         'q': getSearchParam()
     };
+    //checks that the years are correct
+    if ((getStartYear() !== getEndYear()) && (getStartYear() < getEndYear())) {
+        apiParam.begin_date = getStartYear() + '0101';
+        apiParam.end_date = getEndYear() + '0101';
+    }
 
     var urlAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + $.param(apiParam);
-
     $.ajax({
         url: urlAPI,
         method: "GET",
