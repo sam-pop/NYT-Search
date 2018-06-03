@@ -12,20 +12,29 @@ function getNumArticles() {
 }
 
 function showResults(res) {
+    clearResults();
     let $results = $('.results');
-    $results.empty();
 
-    for (var i = 0; i < getNumArticles(); i++) {
+    for (let i = 0; i < getNumArticles(); i++) {
+        let title = res.response.docs[i].headline.main;
+        let snippet = res.response.docs[i].snippet;
+        let link = res.response.docs[i].web_url;
 
-        var title = res.response.docs[i].headline.main;
-        var snippet = res.response.docs[i].snippet;
-        var urls = res.response.docs[i].web_url;
-
-        $results.append($('<h3>').text(`${i+1}) ` + title));
-        $results.append($('<p>').text("--" + snippet));
-        $results.append($('<a>').attr('href', urls).text('Link'));
+        let $article = $('<div>').addClass('card').append('<div>').addClass('card-body');
+        $article.append($('<h3>').addClass('card-title').text(`${i+1}. ` + title));
+        $article.append($('<p>').addClass('card-text').text(snippet));
+        $article.append($('<a>').attr({
+            'href': link,
+            'target': '_blank'
+        }).append($('<button>').addClass('btn').text('Show Article')));
+        $results.append($article);
     }
 
+}
+
+function clearResults() {
+    let $results = $('.results');
+    $results.empty();
 }
 
 
@@ -53,5 +62,9 @@ $(function () {
     $('#searchBtn').click(function (e) {
         e.preventDefault();
         runApi();
+    });
+    $('#clearBtn').click(function (e) {
+        e.preventDefault();
+        clearResults();
     });
 });

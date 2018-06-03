@@ -1,34 +1,45 @@
-.form {margin-bottom: 8px;}
+.form {
+    margin-bottom: 8px;
+}
+
+.card {
+    border: 0px;
+}
+
 .jumbotron {
     color: white;
-    background-color:#233257;
+    background-color: #233257;
     text-align: center;
 }
+
 .form-header {
     color: white;
     background-color: #233257;
     padding: 5px;
 }
+
 .form {
     border: 1px;
     border-style: solid;
     border-color: #233257;
     margin-bottom: 8px;
     border-top: none;
- 
 }
+
 .form-group {
     padding: 10px;
 }
+
 .btn {
     margin: 5px;
     margin-bottom: 10px;
 }
+
 .card-header {
     color: white;
     background-color: #233257;
 }
-#button{
+
+#button {
     background-color: darkgray;
-    
 }
