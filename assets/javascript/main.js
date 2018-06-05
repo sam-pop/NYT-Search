@@ -46,14 +46,11 @@ function showResults(res) {
             'target': '_blank'
         });
 
-        $articleLink.append($('<h3>').addClass('card-title').text(`${i+1}. ` + title));
+        $articleLink.append($('<h4>').addClass('card-title').text(`${i+1}. ` + title));
         $articleLink.append($('<p>').addClass('card-text').text(snippet));
-        // $articleBody.append($('<a>').attr({
-        //     'href': link,
-        //     'target': '_blank'
-        // }).append($('<button>').addClass('btn').text('Show Article')));
         $article.append($articleBody.append($articleLink));
         $results.append($article);
+        $results.append($('<hr>'));
     }
 }
 
